@@ -145,7 +145,7 @@ public class Array<E> {
         remove(0);
     }
 
-    //从数组谁能出最后一个元素
+    //从数组删除最后一个元素
     public void removeLast(){
         remove(size-1);
     }
@@ -175,6 +175,15 @@ public class Array<E> {
 
     //数组反转
 
+    //插入操作修改-直接将第K位的元素移动到数组最后
+    public void addpro(int index,E e){
+        if(index <0 && index >size){
+            throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
+        }
+        data[size] = data[index];
+        data[index] = e;
+        size++;
+    }
     @Override
     public String toString(){
         StringBuilder res = new StringBuilder();

@@ -78,7 +78,7 @@ public class Array<E> {
 
     //获取index位置的元素
     public E getIndex(int index){
-        if(index < 0 || index >size){
+        if(index < 0 || index >=size){
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         return data[index];
@@ -171,10 +171,26 @@ public class Array<E> {
             flag--;
         }
     }
-    //求出数组的最大值最小值
+    //从数组中删除指定的的所有元素-改进
+    public void removeAllElmPro(E e){
+        for(int i=0;i<size;i++){
+            if(data[i].equals(e)){
+                data[i]=null;
+            }
+        }
+    }
+    //求出数组的最大值 E extends Comparable
+
+    //求出数组的最小值 E extends Comparable
 
     //数组反转
-
+    public void reverse(){
+        for(int min =0 , max =size-1;min<max;min++,max--){
+            E temp = data[max];
+            data[max] = data[min];
+            data[min] = temp;
+        }
+    }
     //插入操作修改-直接将第K位的元素移动到数组最后
     public void addpro(int index,E e){
         if(index <0 && index >size){

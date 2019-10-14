@@ -10,9 +10,12 @@ public class main {
             arr.addLast(i);
         }
         arr.set(3,2);
+        arr.reverse();
         System.out.println(arr);
+        /*System.out.println(arr);
         arr.addpro(3,666);
         System.out.println(arr);
+        System.out.println(arr.getIndex(11));*/
         /*ArrayList<Integer> allIndex = arr.findAllIndex(2);
         for (Integer index : allIndex) {
             System.out.println(index);

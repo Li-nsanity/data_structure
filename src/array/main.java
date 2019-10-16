@@ -14,6 +14,8 @@ public class main {
         System.out.println(arr);
         arr.addLast(5);
         System.out.println(arr);
+        arr.removeFirst();
+        System.out.println(arr);
         /*System.out.println(arr);
         arr.addpro(3,666);
         System.out.println(arr);

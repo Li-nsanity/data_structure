@@ -36,7 +36,7 @@ public class ArrayQueue <E> implements Queue <E>{
         return array.isEmpty();
     }
 
-    public int capacity(){
+    public int getCapacity(){
         return array.getCapacity();
     }
 

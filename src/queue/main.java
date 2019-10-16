@@ -2,7 +2,8 @@ package queue;
 
 public class main {
     public static void main(String[] args) {
-        ArrayQueue<Integer> aqueue = new ArrayQueue<>(20);
+//      ArrayQueue<Integer> aqueue = new ArrayQueue<>(20);
+        LoopQueue<Integer> aqueue = new LoopQueue<>(20);
         for (int i = 0; i < 12; i++) {
             aqueue.enqueue(i);
             System.out.println(aqueue);
@@ -13,6 +14,6 @@ public class main {
             }
         }
         System.out.println("队首元素"+aqueue.getFront());
-        System.out.println("队列容量"+aqueue.capacity());
+        System.out.println("队列容量"+aqueue.getCapacity());
     }
 }

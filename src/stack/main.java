@@ -10,5 +10,8 @@ public class main {
         aStack.pop();
         System.out.println(aStack);
         System.out.println(aStack.peek());
+        String s = "((){}{[]})";
+        Solution suo = new Solution();
+        System.out.println(suo.isVaild(s));
     }
 }

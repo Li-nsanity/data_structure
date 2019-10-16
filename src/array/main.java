@@ -12,6 +12,8 @@ public class main {
         arr.set(3,2);
         arr.reverse();
         System.out.println(arr);
+        arr.addLast(5);
+        System.out.println(arr);
         /*System.out.println(arr);
         arr.addpro(3,666);
         System.out.println(arr);

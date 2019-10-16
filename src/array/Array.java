@@ -73,7 +73,7 @@ public class Array<E> {
             data[i+1] = data[i];
         }
         data[index] = e;
-        size++;
+        size ++;
     }
 
     //获取index位置的元素
@@ -82,6 +82,16 @@ public class Array<E> {
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         return data[index];
+    }
+
+    //得到数组最后一个元素
+    public E getLast(){
+        return getIndex(size-1);
+    }
+
+    //得到数组第一个元素、
+    public E getFrist(){
+        return getIndex(0);
     }
 
     //修改索引index的位置的元素为e
@@ -146,8 +156,8 @@ public class Array<E> {
     }
 
     //从数组删除最后一个元素
-    public void removeLast(){
-        remove(size-1);
+    public E removeLast(){
+        return remove(size-1);
     }
 
     //从数组中删除指定的元素

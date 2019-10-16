@@ -13,13 +13,13 @@ public class Solution {
                     return false;
                 }
                 char topChar = stack.pop();
-                if(c == '(' && topChar != ')'){
+                if(c == ')' && topChar != '('){
                     return false;
                 }
-                if(c == '[' && topChar != ']'){
+                if(c == ']' && topChar != '['){
                     return false;
                 }
-                if(c == '{' && topChar != '}'){
+                if(c == '}' && topChar != '{'){
                     return false;
                 }
 

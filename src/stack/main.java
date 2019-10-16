@@ -9,5 +9,6 @@ public class main {
         }
         aStack.pop();
         System.out.println(aStack);
+        System.out.println(aStack.peek());
     }
 }

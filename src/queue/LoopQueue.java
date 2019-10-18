@@ -33,7 +33,7 @@ public class LoopQueue<E> implements Queue<E> {
         if ((tail + 1) % data.length == front) {
             resize(getCapacity() * 2);
         }
-        data[size] = e;
+        data[tail] = e;
         tail = (tail + 1) % data.length;
         size++;
     }

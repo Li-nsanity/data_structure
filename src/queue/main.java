@@ -3,8 +3,8 @@ package queue;
 public class main {
     public static void main(String[] args) {
 //      ArrayQueue<Integer> aqueue = new ArrayQueue<>(20);
-        LoopQueue<Integer> aqueue = new LoopQueue<>(20);
-        for (int i = 0; i < 12; i++) {
+        LoopQueue<Integer> aqueue = new LoopQueue<>(10);
+        for (int i = 0; i < 10; i++) {
             aqueue.enqueue(i);
             System.out.println(aqueue);
             //每进入队列三个元素出队列一个元素

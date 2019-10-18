@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class main {
     public static void main(String[] args) {
         Array<Integer> arr = new Array<Integer>(20);
-        for(int i = 0;i<=10;i++){
+        for (int i = 0; i <= 10; i++) {
             arr.addLast(i);
         }
-        arr.set(3,2);
+        arr.set(3, 2);
         arr.reverse();
         System.out.println(arr);
         arr.addLast(5);

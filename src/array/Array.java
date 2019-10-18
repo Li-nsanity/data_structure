@@ -26,86 +26,86 @@ public class Array<E> {
     private int size;
 
     //构造函数，传入数组的容量capacity构造Array
-    public Array(int capacity){
-        data = (E[])new Object[capacity];
+    public Array(int capacity) {
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
     //无参数的构造函数，默认容量是capacity = 10
-    public Array(){
+    public Array() {
         this(10);
     }
 
     //获取数组中的元素个数
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
     //获取数组的容量
-    public int getCapacity(){
+    public int getCapacity() {
         return data.length;
     }
 
     //判断数组是否为空
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     //向数组Last添加元素
-    public void addLast(E e){
-       add(size,e);
+    public void addLast(E e) {
+        add(size, e);
     }
 
     //向数组Frist的位置添加元素
-    public void addFrist(E e){
-        add(0,e);
+    public void addFrist(E e) {
+        add(0, e);
     }
 
     //在Index的位置插入一个元素e
-    public void add(int index,E e){
-        if(index < 0 || index >size){
+    public void add(int index, E e) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("AddList failed.Require Index >=0 And Index <= size");
         }
-        if(size == data.length){
-           resize(2*data.length);
+        if (size == data.length) {
+            resize(2 * data.length);
         }
-        for(int i = size-1;i>=index;i--){
-            data[i+1] = data[i];
+        for (int i = size - 1; i >= index; i--) {
+            data[i + 1] = data[i];
         }
         data[index] = e;
-        size ++;
+        size++;
     }
 
     //获取index位置的元素
-    public E getIndex(int index){
-        if(index < 0 || index >=size){
+    public E getIndex(int index) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         return data[index];
     }
 
     //得到数组最后一个元素
-    public E getLast(){
-        return getIndex(size-1);
+    public E getLast() {
+        return getIndex(size - 1);
     }
 
     //得到数组第一个元素、
-    public E getFrist(){
+    public E getFrist() {
         return getIndex(0);
     }
 
     //修改索引index的位置的元素为e
-    public void set(int index ,E e){
-        if(index < 0 || index >size){
+    public void set(int index, E e) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         data[index] = e;
     }
 
     //查询数组中是否包含元素e
-    public boolean contains(E e){
-        for (int i =0;i<size;i++){
-            if(data[i].equals(e)){
+    public boolean contains(E e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
@@ -113,9 +113,9 @@ public class Array<E> {
     }
 
     //查找数组中元素e对应的索引,如果不存在e，则返回-1
-    public int findIndex(E e){
-        for (int i =0;i<size;i++){
-            if(data[i].equals(e)){
+    public int findIndex(E e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
                 return i;
             }
         }
@@ -123,69 +123,70 @@ public class Array<E> {
     }
 
     //查找数组中元素e对应的所有索引
-    public ArrayList<Integer> findAllIndex(E e){
+    public ArrayList<Integer> findAllIndex(E e) {
         ArrayList<Integer> ary = new ArrayList<>();
-        for (int i=0;i<size;i++){
-            if(data[i].equals(e)){
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
                 ary.add(i);
             }
         }
-        return ary ;
+        return ary;
     }
 
     //移除某个索引位置的元素,并返回删除的元素
-    public E remove(int index){
-        if(index < 0 || index >size){
+    public E remove(int index) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         E res = data[index];
-        for(int i = index;i+1<size;i++){
-            data[i] =data[i+1];
+        for (int i = index; i + 1 < size; i++) {
+            data[i] = data[i + 1];
         }
         size--;
         data[size] = null;//loitering objects != memory leak
-        if(size == data.length/4 && data.length != 0){
-            resize(data.length/2);
+        if (size == data.length / 4 && data.length != 0) {
+            resize(data.length / 2);
         }
         return res;
     }
 
     //从数组删除第一个元素
-    public void removeFirst(){
+    public void removeFirst() {
         remove(0);
     }
 
     //从数组删除最后一个元素
-    public E removeLast(){
-        return remove(size-1);
+    public E removeLast() {
+        return remove(size - 1);
     }
 
     //从数组中删除指定的元素
-    public void removeElm(E e){
+    public void removeElm(E e) {
         int ind = findIndex(e);
-        if(ind != -1) {
+        if (ind != -1) {
             remove(ind);
         }
     }
 
     //从数组中删除指定的的所有元素
-    public void removeAllElm(E e){
+    public void removeAllElm(E e) {
         ArrayList<Integer> arr2 = new ArrayList<>();
         arr2 = findAllIndex(e);
         System.out.println(arr2);
         int flag = arr2.size();
         System.out.println(flag);
-        while(flag != 0){
+        while (flag != 0) {
             int index = findIndex(e);
             remove(index);
             flag--;
         }
     }
+
     //从数组中删除指定的的所有元素-改进
-    public void removeAllElmPro(E e){
-        for(int i=0;i<size;i++){
-            if(data[i].equals(e)){
-                data[i]=null;
+    public void removeAllElmPro(E e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
+                data[i] = null;
             }
         }
     }
@@ -194,30 +195,32 @@ public class Array<E> {
     //求出数组的最小值 E extends Comparable
 
     //数组反转
-    public void reverse(){
-        for(int min =0 , max =size-1;min<max;min++,max--){
+    public void reverse() {
+        for (int min = 0, max = size - 1; min < max; min++, max--) {
             E temp = data[max];
             data[max] = data[min];
             data[min] = temp;
         }
     }
+
     //插入操作修改-直接将第K位的元素移动到数组最后
-    public void addpro(int index,E e){
-        if(index <0 && index >size){
+    public void addpro(int index, E e) {
+        if (index < 0 && index > size) {
             throw new IllegalArgumentException("GetIndex failed . Index is illegal.");
         }
         data[size] = data[index];
         data[index] = e;
         size++;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(String.format("Array : size = %d , capacity = %d\n",size,data.length));
+        res.append(String.format("Array : size = %d , capacity = %d\n", size, data.length));
         res.append("[");
-        for(int i = 0;i<size;i++){
+        for (int i = 0; i < size; i++) {
             res.append(data[i]);
-            if(i != size-1){
+            if (i != size - 1) {
                 res.append(",");
             }
         }
@@ -226,10 +229,10 @@ public class Array<E> {
     }
 
     //数组扩容
-    private void resize(int newCapacity){
+    private void resize(int newCapacity) {
         E[] newdata = (E[]) new Object[newCapacity];
-        for (int i =0;i<size;i++){
-            newdata[i] =data[i];
+        for (int i = 0; i < size; i++) {
+            newdata[i] = data[i];
         }
         data = newdata;
     }

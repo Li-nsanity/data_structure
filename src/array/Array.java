@@ -184,9 +184,10 @@ public class Array<E> {
 
     //从数组中删除指定的的所有元素-改进
     public void removeAllElmPro(E e) {
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(e)) {
-                data[i] = null;
+        int i = 0;
+        while (i < size) {
+            if(data[i].equals(e)){
+                remove(i);
             }
         }
     }

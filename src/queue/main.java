@@ -1,6 +1,7 @@
 package queue;
 
 import java.util.Random;
+import java.util.function.DoubleToIntFunction;
 
 public class main {
     public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class main {
         System.out.println("队列容量" + aqueue.getCapacity());*/
         //######################################################
 
-        //数组队列和循环队列的算法对比
+        //数组队列，循环队列，链表队列的算法对比
         int opCount = 100000;
         ArrayQueue<Integer> aqueue = new ArrayQueue<>();
         double testTime1 = testQueue(aqueue, opCount);
@@ -29,6 +30,20 @@ public class main {
         LoopQueue<Integer> lqueue = new LoopQueue<>();
         double testTime2 = testQueue(lqueue, opCount);
         System.out.println("LoopQueue Time:" + testTime2 + " s");
+
+        LinkedListQueue<Integer> llqueue = new LinkedListQueue<>();
+        double testTime3 = testQueue(llqueue, opCount);
+        System.out.println("LinkedListQueue Time:" + testTime3 + " s");
+        // 基于链表的队列
+//        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+//        for (int i = 0; i < 10; i++) {
+//            linkedListQueue.enqueue(i);
+//            System.out.println(linkedListQueue);
+//            if (i % 3 == 2) {
+//                linkedListQueue.dequeue();
+//                System.out.println(linkedListQueue);
+//            }
+//        }
     }
 
     //测试使用q运行opCount = 100000个enqueue和dequeue所用的时间，单位：秒

@@ -11,6 +11,9 @@ public class Q1 {
                 ans = i;
                 n /= i;
             }
+
+
+
         }
         if (n > 1) {
             ans = n;
